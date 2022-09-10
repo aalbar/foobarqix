@@ -16,30 +16,33 @@ public class FooBarQix {
     public String compute(String input) {
 
 
-        String result = divisible(input)+replace(input);
+        String result = divisible(input) + replace(input);
         if (!"".equals(result))
             return result;
 
-        return input;
+        return input.replace("0", "*");
     }
 
     private String divisible(String input) {
-        StringBuilder divisibleResult = new StringBuilder();
+        StringBuilder result = new StringBuilder();
         for (Integer divisor : divisors.keySet())
-            if (Integer.parseInt(input) % divisor == 0) divisibleResult.append(divisors.get(divisor));
-        return divisibleResult.toString();
+            if (Integer.parseInt(input) % divisor == 0) result.append(divisors.get(divisor));
+        return result.toString();
     }
 
     private String replace(String input) {
         String[] numbers = input.split("");
-        StringBuilder replaceResult = new StringBuilder();
+        StringBuilder result = new StringBuilder();
         for (String number : numbers) {
             for (Integer divisor : divisors.keySet()) {
                 if (Integer.parseInt(number) == divisor) {
-                    replaceResult.append(divisors.get(divisor));
+                    result.append(divisors.get(divisor));
                 }
             }
+            if (number.equals("0")) {
+                result.append("*");
+            }
         }
-        return replaceResult.toString();
+        return result.toString();
     }
 }

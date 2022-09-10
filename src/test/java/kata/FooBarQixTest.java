@@ -18,19 +18,19 @@ public class FooBarQixTest {
 
     @Test
     public void should_return_bar_divisible_by_5() {
-        Assertions.assertEquals("Bar", new FooBarQix().compute("10"));
+        Assertions.assertEquals("Bar*", new FooBarQix().compute("10"));
     }
 
     @Test
-    public void should_return_Qix_divisible_by_7() {
+    public void should_return_qix_divisible_by_7() {
         Assertions.assertEquals("Qix", new FooBarQix().compute("14"));
     }
 
     @Test
     public void should_combine_divisible() {
-        Assertions.assertEquals("FooBar", new FooBarQix().compute("60"));
+        Assertions.assertEquals("FooBarQix*Bar", new FooBarQix().compute("105"));
         Assertions.assertEquals("FooQix", new FooBarQix().compute("42"));
-        Assertions.assertEquals("BarQix", new FooBarQix().compute("140"));
+        Assertions.assertEquals("BarQix*", new FooBarQix().compute("140"));
     }
 
     @Test
@@ -61,7 +61,18 @@ public class FooBarQixTest {
         Assertions.assertEquals("QixQix", new FooBarQix().compute("7"));
         Assertions.assertEquals("FooBarBar", new FooBarQix().compute("15"));
         Assertions.assertEquals("FooFooFoo", new FooBarQix().compute("33"));
-        Assertions.assertEquals("FooBarQixBar", new FooBarQix().compute("105"));
+    }
+
+    @Test
+    public void should_replace_101_by_1star1() {
+        Assertions.assertEquals("1*1", new FooBarQix().compute("101"));
+    }
+
+    @Test
+    public void should_return_divisible_by_replace_foobarqix_and_replace_by_star() {
+        Assertions.assertEquals("FooFoo*Foo", new FooBarQix().compute("303"));
+        Assertions.assertEquals("FooBarQix*Bar", new FooBarQix().compute("105"));
+        Assertions.assertEquals("FooQix**", new FooBarQix().compute("10101"));
     }
 
 }
