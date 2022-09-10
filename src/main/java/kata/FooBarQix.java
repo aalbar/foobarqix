@@ -15,15 +15,11 @@ public class FooBarQix {
 
     public String compute(String input) {
 
-        String[] numbers = input.split("");
-        String replaceResult = replace(numbers);
-        if (!"".equals(replaceResult))
-            return replaceResult;
 
+        String result = divisible(input)+replace(input);
+        if (!"".equals(result))
+            return result;
 
-        String divisibleResult = divisible(input);
-        if (!divisibleResult.equals(""))
-            return divisibleResult;
         return input;
     }
 
@@ -34,7 +30,8 @@ public class FooBarQix {
         return divisibleResult.toString();
     }
 
-    private String replace(String[] numbers) {
+    private String replace(String input) {
+        String[] numbers = input.split("");
         StringBuilder replaceResult = new StringBuilder();
         for (String number : numbers) {
             for (Integer divisor : divisors.keySet()) {
