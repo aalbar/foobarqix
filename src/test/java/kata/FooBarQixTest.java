@@ -30,7 +30,12 @@ public class FooBarQixTest {
     public void should_combine_divisible() {
         Assertions.assertEquals("FooBar", new FooBarQix().compute("15"));
         Assertions.assertEquals("FooQix", new FooBarQix().compute("21"));
-        Assertions.assertEquals("BarQix", new FooBarQix().compute("35"));
+        Assertions.assertEquals("BarQix", new FooBarQix().compute("70"));
+    }
+
+    @Test
+    public void should_replace_3_by_Foo() {
+        Assertions.assertEquals("Foo", new FooBarQix().compute("13"));
     }
 
 }
