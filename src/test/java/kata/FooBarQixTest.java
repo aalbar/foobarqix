@@ -26,4 +26,11 @@ public class FooBarQixTest {
         Assertions.assertEquals("Qix", new FooBarQix().compute("7"));
     }
 
+    @Test
+    public void should_combine_divisible() {
+        Assertions.assertEquals("FooBar", new FooBarQix().compute("15"));
+        Assertions.assertEquals("FooQix", new FooBarQix().compute("21"));
+        Assertions.assertEquals("BarQix", new FooBarQix().compute("35"));
+    }
+
 }
