@@ -11,4 +11,9 @@ public class FooBarQixTest {
         Assertions.assertEquals("2", new FooBarQix().compute("2"));
     }
 
+    @Test
+    public void should_return_foo_divisible_by_3() {
+        Assertions.assertEquals("Foo", new FooBarQix().compute("3"));
+    }
+
 }
