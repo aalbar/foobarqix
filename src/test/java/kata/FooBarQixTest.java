@@ -8,5 +8,7 @@ public class FooBarQixTest {
     @Test
     public void should_return_input() {
         Assertions.assertEquals("1", new FooBarQix().compute("1"));
+        Assertions.assertEquals("2", new FooBarQix().compute("2"));
     }
+
 }
