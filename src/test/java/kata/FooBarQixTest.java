@@ -28,14 +28,24 @@ public class FooBarQixTest {
 
     @Test
     public void should_combine_divisible() {
-        Assertions.assertEquals("FooBar", new FooBarQix().compute("15"));
-        Assertions.assertEquals("FooQix", new FooBarQix().compute("21"));
-        Assertions.assertEquals("BarQix", new FooBarQix().compute("70"));
+        Assertions.assertEquals("FooBar", new FooBarQix().compute("60"));
+        Assertions.assertEquals("FooQix", new FooBarQix().compute("42"));
+        Assertions.assertEquals("BarQix", new FooBarQix().compute("140"));
     }
 
     @Test
-    public void should_replace_3_by_Foo() {
+    public void should_replace_3_by_foo() {
         Assertions.assertEquals("Foo", new FooBarQix().compute("13"));
+    }
+
+    @Test
+    public void should_replace_5_by_bar() {
+        Assertions.assertEquals("Bar", new FooBarQix().compute("52"));
+    }
+
+    @Test
+    public void should_replace_7_by_qix() {
+        Assertions.assertEquals("Qix", new FooBarQix().compute("71"));
     }
 
 }

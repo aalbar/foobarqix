@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class FooBarQix {
 
-    private static Map<Integer, String> divisors = new HashMap<>();
+    private static final Map<Integer, String> divisors = new HashMap<>();
 
     static {
         divisors.put(3, "Foo");
@@ -14,9 +14,16 @@ public class FooBarQix {
     }
 
     public String compute(String input) {
-        if (input.contains("3")) {
-            return "Foo";
+
+        String[] numbers = input.split("");
+        for (String number : numbers) {
+            for (Integer divisor : divisors.keySet()) {
+                if (Integer.parseInt(number) == divisor) {
+                    return divisors.get(divisor);
+                }
+            }
         }
+
 
         String result = "";
         for (Integer divisor : divisors.keySet())
