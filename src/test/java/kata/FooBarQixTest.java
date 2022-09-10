@@ -48,4 +48,9 @@ public class FooBarQixTest {
         Assertions.assertEquals("Qix", new FooBarQix().compute("71"));
     }
 
+    @Test
+    public void should_combine_replace() {
+        Assertions.assertEquals("FooBar", new FooBarQix().compute("35"));
+    }
+
 }
