@@ -1,11 +1,13 @@
 package kata;
 
+import java.util.Map;
+
 public class FooBarQix {
 
     public String compute(String input) {
-        if (Integer.parseInt(input) % 3 == 0) return "Foo";
-        if (Integer.parseInt(input) % 5 == 0) return "Bar";
-        if (Integer.parseInt(input) % 7 == 0) return "Qix";
+        Map<Integer, String> divisors = Map.of(3, "Foo", 5, "Bar", 7, "Qix");
+        for (Map.Entry<Integer, String> entry : divisors.entrySet())
+            if (Integer.parseInt(input) % entry.getKey() == 0) return entry.getValue();
         return input;
     }
 }
