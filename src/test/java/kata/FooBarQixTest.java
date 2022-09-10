@@ -16,4 +16,14 @@ public class FooBarQixTest {
         Assertions.assertEquals("Foo", new FooBarQix().compute("3"));
     }
 
+    @Test
+    public void should_return_bar_divisible_by_5() {
+        Assertions.assertEquals("Bar", new FooBarQix().compute("5"));
+    }
+
+    @Test
+    public void should_return_Qix_divisible_by_7() {
+        Assertions.assertEquals("Qix", new FooBarQix().compute("7"));
+    }
+
 }
